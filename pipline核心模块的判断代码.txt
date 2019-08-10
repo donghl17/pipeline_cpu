@@ -1,0 +1,73 @@
+
+hazardunit——loaduse stall判断
+3.  ID Hazard Detection
+if    (ID/EX.MemRead
+and ((ID/EX.RegisterRt——mux2_out = IF/ID.RegisterRs——Instruction[25:21])
+or   (ID/EX.RegisterRt ——mux2_out = IF/ID.RegisterRt——Instruction[20:16])))
+stall the pipeline
+
+forwardunit——R-beq
+4. 从EX/MEM中旁路源操作数
+
+if (IDcontrol.Branch
+and EX/MEM.MemRead==1
+and (EX/MEM.RegisterRd != 0)
+and (EX/MEM.RegisterRd = IF/ID.RegisterRs))
+mux4_control=2 (数据通路为RData)
+
+if (IDcontrol.Branch
+and EX/MEM.MemRead==1
+and (EX/MEM.RegisterRd != 0)
+and (EX/MEM.RegisterRd = IF/ID.RegisterRt))
+mux3_control=2(数据通路为RData)
+
+if (IDcontrol.Branch
+and (EX/MEM.RegisterRd != 0)
+and (EX/MEM.RegisterRd = IF/ID.RegisterRs))
+	mux4_control=1	
+if (IDcontrol.Branch
+and (EX/MEM.RegisterRd != 0)
+and (EX/MEM.RegisterRd = IF/ID.RegisterRt))
+mux3_control=1
+
+
+
+
+
+
+
+
+
+
+
+
+默认值都为0！！！！！！！！！！！！！！！！！！！！！！！！！！！
+（r-r型）相邻指令的转发
+if (EX/MEM.RegWrite
+and (EX/MEM.RegisterRd != 0)
+and (EX/MEM.RegisterRd == ID/EX.RegisterRs))
+mux5_control=2
+//mux1_control=2
+
+
+if (EX/MEM.RegWrite
+and (EX/MEM.RegisterRd != 0)
+and (EX/MEM.RegisterRd == ID/EX.RegisterRt))
+//mux5_control=
+mux1_control=2
+
+（r-r/r-l/r-l在install后）隔一条指令的转发
+2.  MEM/WB hazard:
+if (MEM/WB.RegWrite
+and (MEM/WB.RegisterRd != 0)
+and (MEM/WB.RegisterRd == ID/EX.RegisterRs)
+and (EX/MEM.RegisterRd != ID/EX.RegisterRs || ~ EX/MEM.RegWrite))
+mux5_control=1
+//mux1_control=
+
+if (MEM/WB.RegWrite
+and (MEM/WB.RegisterRd != 0)
+and (MEM/WB.RegisterRd == ID/EX.RegisterRt)
+and (EX/MEM.RegisterRd != ID/EX.RegisterRt || ~ EX/MEM.RegWrite)))
+//mux5_control=
+mux1_control=1
