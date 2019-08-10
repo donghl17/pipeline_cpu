@@ -1,0 +1,17 @@
+0.6
+2018.3
+Dec  7 2018
+00:33:28
+C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/ALU.v,1430680054,verilog,,C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/ALUControl.v,,ALU,,,,,,,,
+C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/ALUControl.v,1431089062,verilog,,C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/CPU.v,,ALUControl,,,,,,,,
+C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/CPU.v,1565431060,verilog,,C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/pipeline_cpu.srcs/sources_1/new/Compare.v,,CPU,,,,,,,,
+C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/Control.v,1565414974,verilog,,C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/DataMemory.v,,Control,,,,,,,,
+C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/DataMemory.v,1565436053,verilog,,C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/pipeline_cpu.srcs/sources_1/new/ForwardUnit_for_R_beq.v,,DataMemory,,,,,,,,
+C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/InstructionMemory.v,1559569801,verilog,,C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/RegisterFile.v,,InstructionMemory,,,,,,,,
+C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/RegisterFile.v,1565420315,verilog,,C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/test_cpu.v,,RegisterFile,,,,,,,,
+C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/pipeline_cpu.sim/sim_1/behav/xsim/glbl.v,1544155481,verilog,,,,glbl,,,,,,,,
+C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/pipeline_cpu.srcs/sources_1/new/Compare.v,1565347055,verilog,,C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/Control.v,,Compare,,,,,,,,
+C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/pipeline_cpu.srcs/sources_1/new/ForwardUnit_for_R_beq.v,1565340877,verilog,,C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/pipeline_cpu.srcs/sources_1/new/ForwardUnit_for_load_use.v,,ForwardUnit_for_R_beq,,,,,,,,
+C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/pipeline_cpu.srcs/sources_1/new/ForwardUnit_for_load_use.v,1565430492,verilog,,C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/pipeline_cpu.srcs/sources_1/new/HazardUnit.v,,ForwardUnit_for_load_use,,,,,,,,
+C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/pipeline_cpu.srcs/sources_1/new/HazardUnit.v,1565414660,verilog,,C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/InstructionMemory.v,,HazardUnit,,,,,,,,
+C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/test_cpu.v,1565360230,verilog,,,,test_cpu,,,,,,,,
