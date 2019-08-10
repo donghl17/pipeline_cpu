@@ -1,0 +1,20 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../ALU.v" \
+"../../../../ALUControl.v" \
+"../../../../CPU.v" \
+"../../../../pipeline_cpu.srcs/sources_1/new/Compare.v" \
+"../../../../Control.v" \
+"../../../../DataMemory.v" \
+"../../../../pipeline_cpu.srcs/sources_1/new/ForwardUnit_for_R_beq.v" \
+"../../../../pipeline_cpu.srcs/sources_1/new/ForwardUnit_for_load_use.v" \
+"../../../../pipeline_cpu.srcs/sources_1/new/HazardUnit.v" \
+"../../../../InstructionMemory.v" \
+"../../../../RegisterFile.v" \
+"../../../../test_cpu.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
