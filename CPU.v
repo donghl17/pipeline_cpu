@@ -1,10 +1,10 @@
 
-module CPU(reset, sysclk);//, testmode,cathodes,AN,led
+module CPU(reset, sysclk,cathodes,AN);//, testmode,,led
 	input reset, sysclk;
 //	input [1:0]testmode;	
-//	output [6:0]cathodes;
-//	output [3:0]AN;
-//	output [7:0]led;
+	output [6:0]cathodes;
+	output [3:0]AN;
+	//output [7:0]led;
 	
 	//PCÏà¹Ø±äÁ¿
 	reg [31:0] PC;
@@ -23,7 +23,7 @@ module CPU(reset, sysclk);//, testmode,cathodes,AN,led
 	reg [31:0] IF_ID_Instruction;
 	//¿ØÖÆÆ÷+stall¿ØÖÆµÄmux
 	wire [1:0] RegDst;
-	wire [1:0] PCSrc;
+	wire [2:0] PCSrc;
 	wire Branch;
 	wire MemRead;
 	wire [1:0] MemtoReg;
@@ -37,7 +37,7 @@ module CPU(reset, sysclk);//, testmode,cathodes,AN,led
 	//¼Ä´æÆ÷¶Ñ+Ð´Èë¼Ä´æÆ÷±àºÅÒª´ÓºóÃæ´«»ØÀ´
 	wire [31:0] Databus1, Databus2;
 	wire [31:0] mux7_out;
-	//wire [15:0] show_data;
+	
 	wire [4:0] Write_register;
 	//·ûºÅÀ©Õ¹µ¥Ôª
 	wire [31:0] Ext_out;
@@ -109,11 +109,20 @@ module CPU(reset, sysclk);//, testmode,cathodes,AN,led
 	reg [4:0] MEM_WB_mux2_out;
 	reg MEM_WB_RegWrite;
 	reg [1:0]MEM_WB_MemtoReg;
-	
+	//ÍâÉè±äÁ¿
+	wire ILLOP;
+	//initial ILLOP=1'b0;
+	//wire show_clk;
+	wire [11:0] show_data;
+    //reg [1:0]TCON_;
+    //assign TCON=TCON_;
 //resetÇåÁãºÍpc±äÎªpcnext£¬°üÀ¨piplineÖÐµÄstall¿ØÖÆÖ¸Áî		
 	always @(posedge reset or posedge sysclk)
 		if (reset)
+		begin
 			PC <= 32'h00000000;
+			//TCON_<=2'b00;
+			end
 		else if(stall)
 		    PC<=PC;
 		else
@@ -151,7 +160,7 @@ module CPU(reset, sysclk);//, testmode,cathodes,AN,led
 	
 //¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª	
 //¿ØÖÆÆ÷+stall¿ØÖÆµÄmux
-	Control control1(
+	Control control1(.ILLOP(ILLOP),
 		.Stall(stall),.OpCode(IF_ID_Instruction[31:26]), .Funct(IF_ID_Instruction[5:0]),
 		.PCSrc(PCSrc), .Branch(Branch), .RegWrite(RegWrite), .RegDst(RegDst), 
 		.MemRead(MemRead),	.MemWrite(MemWrite), .MemtoReg(MemtoReg),
@@ -177,7 +186,7 @@ module CPU(reset, sysclk);//, testmode,cathodes,AN,led
 	assign mux4_out=(mux4_control==2'b00)? Databus1:
 	                (mux4_control==2'b01)? ALU_out:
 	                Read_data;
-	assign mux3_out=(mux3_control==2'b00)? Databus1:
+	assign mux3_out=(mux3_control==2'b00)? Databus2:
 	                (mux3_control==2'b01)? ALU_out:
 	                Read_data;
 	Compare compare_module(.Number1(mux4_out),.Number2(mux3_out),.Compare_out(Compare_out));
@@ -185,7 +194,7 @@ module CPU(reset, sysclk);//, testmode,cathodes,AN,led
 	assign Branch_target = (and_out)? IF_ID_PC_plus_4 + {Ext_out[29:0], 2'b00}: PC_plus_4;
     
     //×îÖÕÏÂÒ»ÌõPCµÄÖµ£¨piplineÒª¼ÓÒ»¸ö¿ØÖÆÐÅºÅ£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£©
-	assign PC_next = (PCSrc == 2'b00)? Branch_target: (PCSrc == 2'b01)? Jump_target: Databus1;
+	assign PC_next = (PCSrc == 3'b000)? Branch_target: (PCSrc == 3'b001)? Jump_target:(PCSrc == 3'b011)? 32'h80000004: (PCSrc == 3'b100) ? 32'h80000008 :Databus1;
 	
 	//forwardunit for r beq
 	ForwardUnit_for_R_beq forwardunit1 (.Branch(Branch),
@@ -196,7 +205,7 @@ module CPU(reset, sysclk);//, testmode,cathodes,AN,led
 .mux3_control(mux3_control),
 .mux4_control(mux4_control));
 //hazardunit
-	HazardUnit hazardunit (.ID_EX_RegWrite(ID_EX_RegWrite),.Branch(Branch),.and_out(and_out), .PCSrc(PCSrc),.ID_EX_MemRead(ID_EX_MemRead), .mux2_out(mux2_out), .rs(IF_ID_Instruction[25:21]),.rt(IF_ID_Instruction[20:16]), .stall(stall), .IF_Flush(IF_Flush));
+	HazardUnit hazardunit (.reset(reset),.ID_EX_RegWrite(ID_EX_RegWrite),.Branch(Branch),.and_out(and_out), .PCSrc(PCSrc),.ID_EX_MemRead(ID_EX_MemRead), .mux2_out(mux2_out), .rs(IF_ID_Instruction[25:21]),.rt(IF_ID_Instruction[20:16]), .stall(stall), .IF_Flush(IF_Flush));
 //ID/EX¼Ä´æÆ÷	
 	always @(posedge sysclk)
 	begin
@@ -265,9 +274,15 @@ module CPU(reset, sysclk);//, testmode,cathodes,AN,led
 	end
 	
 //¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª	
-	//datamemory
-	DataMemory data_memory1(.reset(reset), .clk(sysclk), .Address(EX_MEM_ALU_out), .Write_data(EX_MEM_mux1_out), .Read_data(Read_data), .MemRead(EX_MEM_MemRead), .MemWrite(EX_MEM_MemWrite));
-	
+	//datamemory µ±µÚÒ»Î»Îª0Ê±²Å½ødatamemeroy
+	DataMemory data_memory1(.reset(reset), .clk(sysclk), .Address(EX_MEM_ALU_out), .Write_data(EX_MEM_mux1_out),
+	 .Read_data(Read_data), .MemRead(EX_MEM_MemRead & (EX_MEM_ALU_out[30:29]!=2'b10)),
+	  .MemWrite(EX_MEM_MemWrite & (EX_MEM_ALU_out[30:29]!=2'b10)));
+	//ÍâÉè£¬µ±µ±µÚÒ»Î»Îª1Ê±²Å½ødatamemeroy
+	Peripheral peripheral1(.reset(reset), .clk(sysclk), .Address(EX_MEM_ALU_out), .Write_data(EX_MEM_mux1_out),
+	 .MemRead(EX_MEM_MemRead & (EX_MEM_ALU_out[30:29]==2'b10)), .MemWrite(EX_MEM_MemWrite & (EX_MEM_ALU_out[30:29]==2'b10)),
+	 .digi(show_data),.ILLOP(ILLOP));
+    
     //MEM/WB¼Ä´æÆ÷
 	always @(posedge sysclk)
 	begin
@@ -281,7 +296,9 @@ module CPU(reset, sysclk);//, testmode,cathodes,AN,led
 //¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª	
 	
 	assign mux7_out = (MEM_WB_MemtoReg == 2'b00)? MEM_WB_ALU_out: (MEM_WB_MemtoReg == 2'b01)? MEM_WB_Read_data: MEM_WB_PC_plus_4;  
-    //Showaddr showaddr(ledclk,show_data,cathodes,AN);
+    Showaddr showaddr(show_data,cathodes,AN);
+//¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
 
 endmodule
 	

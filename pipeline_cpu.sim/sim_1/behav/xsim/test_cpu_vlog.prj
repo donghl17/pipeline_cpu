@@ -10,7 +10,9 @@ verilog xil_defaultlib  \
 "../../../../pipeline_cpu.srcs/sources_1/new/ForwardUnit_for_load_use.v" \
 "../../../../pipeline_cpu.srcs/sources_1/new/HazardUnit.v" \
 "../../../../InstructionMemory.v" \
+"../../../../pipeline_cpu.srcs/sources_1/new/Peripheral.v" \
 "../../../../RegisterFile.v" \
+"../../../../Showaddr.v" \
 "../../../../test_cpu.v" \
 
 # compile glbl module

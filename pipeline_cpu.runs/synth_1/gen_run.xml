@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcsg324-1" LaunchTime="1565436058">
-  <File Type="PA-TCL" Name="test_cpu.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="test_cpu_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="test_cpu_reports.tcl"/>
-  <File Type="RDS-RDS" Name="test_cpu.vds"/>
-  <File Type="RDS-UTIL" Name="test_cpu_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="test_cpu_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="test_cpu.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="test_cpu_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="test_cpu_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a35tcsg324-1" LaunchTime="1565797143">
+  <File Type="PA-TCL" Name="CPU.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="CPU_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="CPU_reports.tcl"/>
+  <File Type="RDS-RDS" Name="CPU.vds"/>
+  <File Type="RDS-UTIL" Name="CPU_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="CPU_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="CPU.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="CPU_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="CPU_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/ALU.v">
@@ -19,13 +19,6 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/ALUControl.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/CPU.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -81,6 +74,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/Peripheral.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/RegisterFile.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -88,24 +88,15 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/test_cpu.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/choosereg.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/Showaddr.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/CPU.v">
+      <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -119,9 +110,25 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/choosereg.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/digital_show.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="test_cpu"/>
+      <Option Name="TopModule" Val="CPU"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>

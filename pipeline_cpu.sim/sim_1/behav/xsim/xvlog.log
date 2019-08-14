@@ -18,7 +18,11 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/f3000/Desktop/digital_logi
 INFO: [VRFC 10-311] analyzing module HazardUnit
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/InstructionMemory.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module InstructionMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/pipeline_cpu.srcs/sources_1/new/Peripheral.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Peripheral
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/RegisterFile.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module RegisterFile
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/Showaddr.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Showaddr
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/test_cpu.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module test_cpu

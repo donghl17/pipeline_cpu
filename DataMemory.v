@@ -21,6 +21,7 @@ module DataMemory(reset, clk, Address, Write_data, Read_data, MemRead, MemWrite)
 			for (i = 0; i < RAM_SIZE; i = i + 1)
 			begin
 			if(i<N)begin RAM_data[i] <= N-i;end
+			//else if(19<i<N)begin RAM_data[i] <= i;end
 			else begin RAM_data[i] <= 32'h00000000;end
 			end
 		else if (MemWrite)

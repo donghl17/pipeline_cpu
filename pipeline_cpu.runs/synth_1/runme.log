@@ -1,6 +1,6 @@
 
 *** Running vivado
-    with args -log test_cpu.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source test_cpu.tcl
+    with args -log CPU.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source CPU.tcl
 
 
 ****** Vivado v2018.3 (64-bit)
@@ -8,18 +8,16 @@
   **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
     ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 
-source test_cpu.tcl -notrace
-Command: synth_design -top test_cpu -part xc7a35tcsg324-1
+source CPU.tcl -notrace
+Command: synth_design -top CPU -part xc7a35tcsg324-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 20544 
+INFO: Helper process launched with PID 2648 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 432.414 ; gain = 98.332
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 432.941 ; gain = 99.207
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'test_cpu' [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/test_cpu.v:2]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/test_cpu.v:9]
 INFO: [Synth 8-6157] synthesizing module 'CPU' [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/CPU.v:2]
 INFO: [Synth 8-6157] synthesizing module 'InstructionMemory' [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/InstructionMemory.v:40]
 INFO: [Synth 8-6155] done synthesizing module 'InstructionMemory' (1#1) [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/InstructionMemory.v:40]
@@ -54,9 +52,33 @@ INFO: [Synth 8-6157] synthesizing module 'DataMemory' [C:/Users/f3000/Desktop/di
 	Parameter RAM_SIZE_BIT bound to: 8 - type: integer 
 	Parameter N bound to: 100 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'DataMemory' (10#1) [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/DataMemory.v:2]
-INFO: [Synth 8-6155] done synthesizing module 'CPU' (11#1) [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/CPU.v:2]
-WARNING: [Synth 8-85] always block has no event control specified [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/test_cpu.v:24]
-INFO: [Synth 8-6155] done synthesizing module 'test_cpu' (12#1) [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/test_cpu.v:2]
+INFO: [Synth 8-6157] synthesizing module 'Peripheral' [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/pipeline_cpu.srcs/sources_1/new/Peripheral.v:2]
+WARNING: [Synth 8-5788] Register digi_reg in module Peripheral is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/pipeline_cpu.srcs/sources_1/new/Peripheral.v:35]
+INFO: [Synth 8-6155] done synthesizing module 'Peripheral' (11#1) [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/pipeline_cpu.srcs/sources_1/new/Peripheral.v:2]
+INFO: [Synth 8-6157] synthesizing module 'Showaddr' [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/Showaddr.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Showaddr' (12#1) [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/Showaddr.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'CPU' (13#1) [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/CPU.v:2]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[31]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[30]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[29]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[28]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[27]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[26]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[25]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[24]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[23]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[22]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[21]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[20]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[19]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[18]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[17]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[16]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[15]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[14]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[13]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[12]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port MemRead
 WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[31]
 WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[30]
 WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[29]
@@ -106,7 +128,7 @@ WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[10
 WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[1]
 WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 502.371 ; gain = 168.289
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 504.508 ; gain = 170.773
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -119,10 +141,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 502.371 ; gain = 168.289
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 504.508 ; gain = 170.773
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 502.371 ; gain = 168.289
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 504.508 ; gain = 170.773
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -130,112 +152,48 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc]
-WARNING: [Vivado 12-584] No ports matched 'testmode[1]'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:1]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:1]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'testmode[0]'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:2]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:2]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'sysclk'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:4]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:4]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'sysclk'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:5]
-CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports sysclk]'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:5]
-Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
-WARNING: [Vivado 12-584] No ports matched 'led[0]'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:8]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:8]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[1]'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:9]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:9]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[2]'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:10]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:10]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[3]'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:11]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:11]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[4]'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:12]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:12]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[5]'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:13]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:13]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[6]'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:14]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:14]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[7]'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:15]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:15]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'cathodes[0]'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:17]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:17]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'cathodes[1]'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:18]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:18]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'cathodes[2]'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:19]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:19]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'cathodes[3]'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:20]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:20]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'cathodes[4]'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:21]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:21]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'cathodes[5]'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:22]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:22]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'cathodes[6]'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:23]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:23]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'AN[3]'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:25]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:25]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'AN[2]'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:26]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:26]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'AN[1]'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:27]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:27]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'AN[0]'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:28]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:28]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'reset'. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:30]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc:30]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 Finished Parsing XDC File [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/CPU_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/CPU_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 872.730 ; gain = 0.000
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 857.152 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 873.199 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 857.152 ; gain = 0.000
-WARNING: [Constraints 18-5210] No constraints selected for write.
-Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.052 . Memory (MB): peak = 857.750 ; gain = 0.598
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 873.199 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 873.199 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 857.750 ; gain = 523.668
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 873.199 ; gain = 539.465
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 857.750 ; gain = 523.668
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 873.199 ; gain = 539.465
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 857.750 ; gain = 523.668
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 873.199 ; gain = 539.465
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5587] ROM size for "Instruction" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "Instruction" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "Branch" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "MemRead0" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "MemWrite0" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "ExtOp" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "LuOp" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "p_1_in" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Branch" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "MemRead0" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "MemWrite0" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ExtOp" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "LuOp" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_1_in" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "ALUOp4" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "RF_data_reg[31]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "RF_data_reg[30]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "RF_data_reg[29]" won't be mapped to RAM because it is too sparse
@@ -325,16 +283,14 @@ INFO: [Synth 8-5546] ROM "RAM_data_reg[203]" won't be mapped to RAM because it i
 INFO: [Synth 8-5546] ROM "RAM_data_reg[202]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "RAM_data_reg[201]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "RAM_data_reg[200]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "RAM_data_reg[199]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "RAM_data_reg[198]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "RAM_data_reg[197]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "RAM_data_reg[196]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "RAM_data_reg[195]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "RAM_data_reg[194]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "RAM_data_reg[193]" won't be mapped to RAM because it is too sparse
 INFO: [Common 17-14] Message 'Synth 8-5546' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-5545] ROM "ILLOP" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "ILLOP" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "digi" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5544] ROM "cathodes" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+WARNING: [Synth 8-327] inferring latch for variable 'cathodes_reg' [C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/Showaddr.v:45]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 857.750 ; gain = 523.668
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 873.199 ; gain = 539.465
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -348,31 +304,35 @@ Start RTL Component Statistics
 Detailed RTL Component Info : 
 +---Adders : 
 	   3 Input     32 Bit       Adders := 1     
-	   2 Input     32 Bit       Adders := 2     
+	   2 Input     32 Bit       Adders := 3     
 +---XORs : 
 	   2 Input     32 Bit         XORs := 1     
 	   2 Input      1 Bit         XORs := 1     
 +---Registers : 
-	               32 Bit    Registers := 300   
+	               32 Bit    Registers := 302   
+	               12 Bit    Registers := 1     
 	                6 Bit    Registers := 1     
 	                5 Bit    Registers := 6     
 	                4 Bit    Registers := 1     
 	                2 Bit    Registers := 4     
-	                1 Bit    Registers := 9     
+	                1 Bit    Registers := 10    
 +---Muxes : 
-	  19 Input     32 Bit        Muxes := 1     
-	   2 Input     32 Bit        Muxes := 19    
+	  66 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 17    
+	   5 Input     32 Bit        Muxes := 1     
 	   2 Input     16 Bit        Muxes := 1     
+	  19 Input      7 Bit        Muxes := 1     
 	  19 Input      5 Bit        Muxes := 1     
 	   2 Input      5 Bit        Muxes := 2     
-	   2 Input      3 Bit        Muxes := 3     
+	   2 Input      3 Bit        Muxes := 5     
+	   5 Input      3 Bit        Muxes := 1     
 	   4 Input      3 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 9     
-	   3 Input      2 Bit        Muxes := 1     
 	  10 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 303   
-	   4 Input      1 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 7     
+	   2 Input      1 Bit        Muxes := 306   
+	   4 Input      1 Bit        Muxes := 2     
 	   9 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 4     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -380,19 +340,35 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
+Module CPU 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
++---Registers : 
+	               32 Bit    Registers := 13    
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 6     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 4     
+	                1 Bit    Registers := 9     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 14    
+	   5 Input     32 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 2     
 Module InstructionMemory 
 Detailed RTL Component Info : 
 +---Muxes : 
-	  19 Input     32 Bit        Muxes := 1     
+	  66 Input     32 Bit        Muxes := 1     
 	   2 Input     32 Bit        Muxes := 1     
 Module Control 
 Detailed RTL Component Info : 
 +---Muxes : 
-	   2 Input      3 Bit        Muxes := 3     
+	   2 Input      3 Bit        Muxes := 5     
+	   5 Input      3 Bit        Muxes := 1     
 	   4 Input      3 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 5     
-	   3 Input      2 Bit        Muxes := 1     
 	  10 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 3     
 	   2 Input      1 Bit        Muxes := 7     
 	   4 Input      1 Bit        Muxes := 1     
 	   9 Input      1 Bit        Muxes := 1     
@@ -437,22 +413,25 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 256   
-Module CPU 
+Module Peripheral 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 2     
+	   2 Input     32 Bit       Adders := 1     
 +---Registers : 
-	               32 Bit    Registers := 13    
-	                6 Bit    Registers := 1     
-	                5 Bit    Registers := 6     
-	                4 Bit    Registers := 1     
-	                2 Bit    Registers := 4     
-	                1 Bit    Registers := 9     
+	               32 Bit    Registers := 2     
+	               12 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 17    
-	   2 Input     16 Bit        Muxes := 1     
-	   2 Input      5 Bit        Muxes := 2     
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 3     
+	   3 Input      1 Bit        Muxes := 3     
+	   4 Input      1 Bit        Muxes := 1     
+Module Showaddr 
+Detailed RTL Component Info : 
++---Muxes : 
+	  19 Input      7 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -469,6 +448,28 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5544] ROM "p_0_out" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[31]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[30]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[29]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[28]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[27]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[26]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[25]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[24]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[23]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[22]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[21]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[20]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[19]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[18]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[17]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[16]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[15]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[14]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[13]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port Write_data[12]
+WARNING: [Synth 8-3331] design Peripheral has unconnected port MemRead
 WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[31]
 WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[30]
 WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[29]
@@ -479,60 +480,42 @@ WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[25]
 WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[24]
 WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[23]
 WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[22]
-WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[21]
-WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[20]
-WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[19]
-WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[18]
-WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[17]
-WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[16]
-WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[15]
-WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[14]
-WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[13]
-WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[12]
-WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[11]
-WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[10]
-WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[1]
-WARNING: [Synth 8-3331] design DataMemory has unconnected port Address[0]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[31]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[30]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[29]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[28]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[27]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[26]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[25]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[24]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[23]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[22]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[21]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[20]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[19]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[18]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[17]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[16]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[15]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[14]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[13]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[12]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[11]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[10]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[1]
-WARNING: [Synth 8-3331] design InstructionMemory has unconnected port Address[0]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\peripheral1/TH_reg[30] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\peripheral1/TH_reg[31] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\peripheral1/TH_reg[29] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\peripheral1/TH_reg[28] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\peripheral1/TH_reg[27] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\peripheral1/TH_reg[26] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\peripheral1/TH_reg[25] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\peripheral1/TH_reg[24] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\peripheral1/TH_reg[23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\peripheral1/TH_reg[22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\peripheral1/TH_reg[21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\peripheral1/TH_reg[20] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\peripheral1/TH_reg[19] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\peripheral1/TH_reg[18] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\peripheral1/TH_reg[17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\peripheral1/TH_reg[16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\peripheral1/TH_reg[15] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\peripheral1/TH_reg[14] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\peripheral1/TH_reg[13] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\peripheral1/TH_reg[12] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\peripheral1/TH_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\peripheral1/TH_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\peripheral1/TH_reg[9] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\peripheral1/TH_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\peripheral1/TH_reg[7] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\peripheral1/TH_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\peripheral1/TH_reg[5] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\peripheral1/TH_reg[4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\peripheral1/TH_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\peripheral1/TH_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\peripheral1/TH_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\peripheral1/TH_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\IF_ID_Instruction_reg[30] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 857.750 ; gain = 523.668
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-ROM:
-+------------------+-------------+---------------+----------------+
-|Module Name       | RTL Object  | Depth x Width | Implemented As | 
-+------------------+-------------+---------------+----------------+
-|InstructionMemory | Instruction | 32x32         | LUT            | 
-+------------------+-------------+---------------+----------------+
-
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:00 ; elapsed = 00:01:04 . Memory (MB): peak = 884.906 ; gain = 551.172
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -544,13 +527,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 857.750 ; gain = 523.668
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:09 ; elapsed = 00:01:14 . Memory (MB): peak = 884.906 ; gain = 551.172
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 857.750 ; gain = 523.668
+Finished Timing Optimization : Time (s): cpu = 00:01:28 ; elapsed = 00:01:34 . Memory (MB): peak = 1122.746 ; gain = 789.012
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -562,7 +545,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 857.750 ; gain = 523.668
+Finished Technology Mapping : Time (s): cpu = 00:01:35 ; elapsed = 00:01:41 . Memory (MB): peak = 1122.746 ; gain = 789.012
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -586,7 +569,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 857.750 ; gain = 523.668
+Finished IO Insertion : Time (s): cpu = 00:01:38 ; elapsed = 00:01:43 . Memory (MB): peak = 1122.746 ; gain = 789.012
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -599,7 +582,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 857.750 ; gain = 523.668
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:38 ; elapsed = 00:01:43 . Memory (MB): peak = 1122.746 ; gain = 789.012
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -611,25 +594,39 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 857.750 ; gain = 523.668
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:39 ; elapsed = 00:01:45 . Memory (MB): peak = 1122.746 ; gain = 789.012
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 857.750 ; gain = 523.668
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:39 ; elapsed = 00:01:45 . Memory (MB): peak = 1122.746 ; gain = 789.012
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 857.750 ; gain = 523.668
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:40 ; elapsed = 00:01:45 . Memory (MB): peak = 1122.746 ; gain = 789.012
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 857.750 ; gain = 523.668
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:40 ; elapsed = 00:01:45 . Memory (MB): peak = 1122.746 ; gain = 789.012
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++------------+--------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name | RTL Name                 | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++------------+--------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|CPU         | MEM_WB_PC_plus_4_reg[31] | 3      | 32    | NO           | NO                 | YES               | 32     | 0       | 
++------------+--------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -642,37 +639,64 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+-+-----+------+
-| |Cell |Count |
-+-+-----+------+
-+-+-----+------+
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    43|
+|3     |LUT1   |     2|
+|4     |LUT2   |   141|
+|5     |LUT3   |   105|
+|6     |LUT4   |   157|
+|7     |LUT5   |   493|
+|8     |LUT6   |  3394|
+|9     |MUXF7  |  1361|
+|10    |MUXF8  |   544|
+|11    |SRL16E |    32|
+|12    |FDCE   |  8907|
+|13    |FDPE   |   342|
+|14    |FDRE   |   566|
+|15    |FDSE   |     5|
+|16    |LD     |     7|
+|17    |IBUF   |     2|
+|18    |OBUF   |    11|
++------+-------+------+
 
 Report Instance Areas: 
-+------+---------+-------+------+
-|      |Instance |Module |Cells |
-+------+---------+-------+------+
-|1     |top      |       |     0|
-+------+---------+-------+------+
++------+-----------------+-------------+------+
+|      |Instance         |Module       |Cells |
++------+-----------------+-------------+------+
+|1     |top              |             | 16113|
+|2     |  alu1           |ALU          |    80|
+|3     |  compare_module |Compare      |   661|
+|4     |  data_memory1   |DataMemory   | 12452|
+|5     |  peripheral1    |Peripheral   |   175|
+|6     |  register_file1 |RegisterFile |  1887|
+|7     |  showaddr       |Showaddr     |     7|
++------+-----------------+-------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 857.750 ; gain = 523.668
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:40 ; elapsed = 00:01:45 . Memory (MB): peak = 1122.746 ; gain = 789.012
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 48 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:25 . Memory (MB): peak = 857.750 ; gain = 168.289
-Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 857.750 ; gain = 523.668
+Synthesis finished with 0 errors, 0 critical warnings and 70 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:28 ; elapsed = 00:01:37 . Memory (MB): peak = 1122.746 ; gain = 420.320
+Synthesis Optimization Complete : Time (s): cpu = 00:01:40 ; elapsed = 00:01:45 . Memory (MB): peak = 1122.746 ; gain = 789.012
 INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 1955 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 857.750 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1122.746 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 7 instances were transformed.
+  LD => LDCE: 7 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-137 Infos, 123 Warnings, 24 Critical Warnings and 0 Errors encountered.
+181 Infos, 102 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:34 . Memory (MB): peak = 857.750 ; gain = 536.301
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 857.750 ; gain = 0.000
+synth_design: Time (s): cpu = 00:01:45 ; elapsed = 00:01:51 . Memory (MB): peak = 1122.746 ; gain = 802.023
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1122.746 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-INFO: [Common 17-1381] The checkpoint 'C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/pipeline_cpu.runs/synth_1/test_cpu.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file test_cpu_utilization_synth.rpt -pb test_cpu_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Aug 10 19:21:40 2019...
+INFO: [Common 17-1381] The checkpoint 'C:/Users/f3000/Desktop/digital_logic_lab/pipeline_cpu/pipeline_cpu.runs/synth_1/CPU.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file CPU_utilization_synth.rpt -pb CPU_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Aug 14 23:41:11 2019...

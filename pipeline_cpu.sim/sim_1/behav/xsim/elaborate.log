@@ -18,6 +18,8 @@ Compiling module xil_defaultlib.ForwardUnit_for_load_use
 Compiling module xil_defaultlib.ALUControl
 Compiling module xil_defaultlib.ALU
 Compiling module xil_defaultlib.DataMemory
+Compiling module xil_defaultlib.Peripheral
+Compiling module xil_defaultlib.Showaddr
 Compiling module xil_defaultlib.CPU
 Compiling module xil_defaultlib.test_cpu
 Compiling module xil_defaultlib.glbl
